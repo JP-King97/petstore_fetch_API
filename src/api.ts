@@ -2,7 +2,7 @@ import { PetRequests } from "./petRequest";
 
 const petAPI = new PetRequests();
 
-async function createANewPet(){
+export async function createANewPet(){
   //const petAPI = new PetRequests();
   try{
     const newPet = petAPI.addNewPet({
