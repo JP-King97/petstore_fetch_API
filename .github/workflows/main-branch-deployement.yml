@@ -28,11 +28,34 @@ jobs:
         env:
           JEST_JUNIT_OUTPUT: test-results/report.html # Store JUnit XML results
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Get Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
         with:
-          folder: test-results/report.html # Path to the HTML coverage report (adjust if needed)
-          branch: gh-pages
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Upload Jest Test Results & Allure Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          path: test-results/report.html
+          retention-days: 10
+
+      - name: Deploy Allure Report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: test-results
+
+      # - name: Deploy to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: test-results/report.html # Path to the HTML coverage report (adjust if needed)
+      #     branch: gh-pages
 
       # If using Allure for Jest:
       # - name: Get Allure history
@@ -65,11 +88,3 @@ jobs:
       #     path: |
       #       test-results/report.html
       #     retention-days: 10
-
-      # - name: Deploy Allure Report to GitHub Pages
-      #   if always()
-      #   uses: peaceiris/actions-gh-pages@v4
-      #   with:
-      #     github_token: {{ secrets.GITHUB_TOKEN }}
-      #     publish_branch: gh-pages
-      #     publish_dir: test-results
