@@ -13,7 +13,7 @@ export interface pet_info {
     "name": string
   },
   "photoUrls": [
-    "string"
+    string
   ],
   "tags": [
     {
