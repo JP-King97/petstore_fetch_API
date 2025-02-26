@@ -24,14 +24,14 @@ jobs:
         run: npm install
 
       - name: Run Jest Tests
-        run: npm tests
+        run: npm run tests
         env:
           JEST_JUNIT_OUTPUT: test-results/report.html # Store JUnit XML results
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: test-results # Path to the HTML coverage report (adjust if needed)
+          folder: test-results/report.html # Path to the HTML coverage report (adjust if needed)
           branch: gh-pages
 
       # If using Allure for Jest:
