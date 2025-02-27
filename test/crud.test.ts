@@ -22,7 +22,7 @@ describe('Create, Read, Update and Delete',()=> {
         ],
         "tags": [
         {
-            "id": 8,
+            "id": 7,
             "name": "friendly"
         }
         ],
@@ -41,7 +41,7 @@ describe('Create, Read, Update and Delete',()=> {
         ],
         "tags": [
         {
-            "id": 8,
+            "id": 7,
             "name": "friendly"
         }
         ],
