@@ -28,6 +28,8 @@ jobs:
         run: |
           mkdir -p test-results
           npm run tests
+        env:
+          JEST_JUNIT_OUTPUT: index.html
 
       - name: Get gh-pages
         uses: actions/checkout@v4
