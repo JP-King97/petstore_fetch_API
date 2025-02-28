@@ -29,7 +29,7 @@ jobs:
           mkdir -p test-results
           npm run tests
         env:
-          JEST_JUNIT_OUTPUT: test-results/report.html
+          JEST_JUNIT_OUTPUT: test-results/index.html
 
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -44,8 +44,8 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: report.html
-          path: test-results/report.html
+          name: index.html
+          path: test-results/index.html
           retention-days: 10 sad
 
       - name: Deploy to GitHub Pages
@@ -53,7 +53,7 @@ jobs:
         if: always()
         with:
           target_branch: gh-pages
-          build_dir: test-results/report.html
+          build_dir: test-results/index.html
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

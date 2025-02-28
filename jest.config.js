@@ -5,7 +5,7 @@ module.exports = {
         "default",
         ["jest-html-reporter", {
           pageTitle: "Test Report",
-          outputPath: "./test-results/report.html",
+          outputPath: "./test-results/index.html",
           includeFailureMsg: true,
           includeSuiteFailure: true
         }]
