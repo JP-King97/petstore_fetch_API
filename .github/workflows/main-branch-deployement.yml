@@ -54,10 +54,11 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: test-results
+          keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Deploy Allure Report to GitHub Pages
+      # - name: Deploy Allure Report to GitHub Pags
       #   if always()
       #   uses: peaceiris/actions-gh-pages@v4
       #   with:
