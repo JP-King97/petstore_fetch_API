@@ -47,10 +47,19 @@ jobs:
           path: test-results/report.html
           retention-days: 10
 
-      - name: Deploy Allure Report to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
         if: always()
-        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./test-results/
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Deploy Allure Report to GitHub Pages
+      #   if always()
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: {{ secrets.GITHUB_TOKEN }}
+      #     publish_branch: gh-pages
+      #     publish_dir: ./test-results/
