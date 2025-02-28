@@ -52,7 +52,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         if: always()
         with:
-          target_branch: main
+          target_branch: gh-pages
           build_dir: test-results
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
