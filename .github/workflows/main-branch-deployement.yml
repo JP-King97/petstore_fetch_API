@@ -30,29 +30,29 @@ jobs:
         env:
           JEST_JUNIT_OUTPUT: test-results/report.html
 
-      - name: Get Allure history
-        uses: actions/checkout@v4
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+      # - name: Get Allure history
+      #   uses: actions/checkout@v4
+      #   if always()
+      #   continue-on-error: true
+      #   with:
+      #     ref: gh-pages
+      #     path: gh-pages
 
-      - run: mkdir -p test-results
-      - name: Upload Jest Test Results & Allure Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: report.html
-          path: test-results/report.html
-          retention-days: 10
+      # - run: mkdir -p test-results
+      # - name: Upload Jest Test Results & Allure Report
+      #   uses: actions/upload-artifact@v4
+      #   i: always()
+      #   with:
+      #     name: report.html
+      #     path: test-results/report.html
+      #     retention-days: 10
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         if: always()
         with:
-          target_branch: gh-pages
-          build_dir: .
+          target_branch: main
+          build_dir: test-results
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
