@@ -24,6 +24,7 @@ jobs:
         run: npm install
 
       - name: Run Jest Tests
+        if: always()
         run: |
           mkdir -p test-results
           npm run tests
