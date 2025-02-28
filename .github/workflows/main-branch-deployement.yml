@@ -48,22 +48,21 @@ jobs:
       #     path: test-results/report.html
       #     retention-days: 10 sad
 
-      # - name: Deploy to GitHub Pages
-      #   uses: crazy-max/ghaction-github-pages@v4
-      #   if always()
-      #   with:
-      #     target_branch: gh-pages
-      #     build_dir: test-results
-      #     keep_history: true
-      #   env:
-      #     GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
-
-      - name: ANY REPORT - GH Pages Push - SAME REPO
-        uses: PavanMudigonda/html-reporter-github-pages@v1.4
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        if: always()
         with:
-          test_results: test-results
-          keep_reports: 20
-          gh_pages: gh_pages
+          target_branch: gh-pages
+          build_dir: test-results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: ANY REPORT - GH Pages Push - SAME REPO
+      #   uses: PavanMudigonda/html-reporter-github-pages@v1.4
+      #   with:
+      #     test_results: test-results
+      #     keep_reports: 20
+      #     gh_pages: gh_pages
 
       # - name: Deploy Allure Report to GitHub Pags
       #   if always()
