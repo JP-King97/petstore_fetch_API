@@ -42,7 +42,7 @@ jobs:
 
       # - name: Upload Jest Test Results
       #   uses: actions/upload-artifact@v4
-      #   if: always()
+      #   if always()
       #   with:
       #     name: index.html
       #     path: test-results/index.html

@@ -40,6 +40,7 @@ export async function asambleRequest(method: "GET" | "POST" | "PUT" | "DELETE", 
 }
 
 export function newPetValues():pet_info{
+  faker.seed(1234);
   const photoUrls: string = faker.internet.url();
   const pet_id:number = faker.number.int(12000);
   const pet_category_id: number = faker.number.int(20) 

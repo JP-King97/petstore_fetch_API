@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create, Read, Update and Delete Create a new pet 1`] = `
+{
+  "category": {
+    "id": 5,
+    "name": "elephant",
+  },
+  "id": 9360,
+  "name": "Nala",
+  "photoUrls": [
+    "https://portly-humor.net/",
+  ],
+  "status": "available",
+  "tags": [
+    {
+      "id": 10,
+      "name": "friendly",
+    },
+  ],
+}
+`;
+
+exports[`Create, Read, Update and Delete Get a pet by 1`] = `
+{
+  "category": {
+    "id": 5,
+    "name": "elephant",
+  },
+  "id": 9360,
+  "name": "Nala",
+  "photoUrls": [
+    "https://portly-humor.net/",
+  ],
+  "status": "available",
+  "tags": [
+    {
+      "id": 10,
+      "name": "friendly",
+    },
+  ],
+}
+`;
+
+exports[`Create, Read, Update and Delete Update a pet 1`] = `
+{
+  "category": {
+    "id": 5,
+    "name": "elephant",
+  },
+  "id": 9360,
+  "name": "Nala(Updated)",
+  "photoUrls": [
+    "https://portly-humor.net/",
+  ],
+  "status": "available",
+  "tags": [
+    {
+      "id": 10,
+      "name": "friendly",
+    },
+  ],
+}
+`;

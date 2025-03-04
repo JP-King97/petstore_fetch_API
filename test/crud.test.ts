@@ -11,6 +11,7 @@ describe('Create, Read, Update and Delete', ()=> {
         const request = newPetValues();
         const response = await createANewPet(request);
         const json = await response.json();
+        expect(json).toMatchSnapshot();
         expect(json).toEqual(request);
     })
     test('Get a pet by', async ()=>{
@@ -18,6 +19,7 @@ describe('Create, Read, Update and Delete', ()=> {
         const newPet = await createANewPet(request);
         const res2 = await getAPetById(request.id);
         const json2 = await res2.json();
+        expect(json2).toMatchSnapshot();
         expect(json2).toEqual(request);
     })
     test('Update a pet', async ()=> {
@@ -29,6 +31,7 @@ describe('Create, Read, Update and Delete', ()=> {
         const response = await updateAPet(updatedRes1);
         const json = await response.json();
         //console.log(await json)
+        expect(json).toMatchSnapshot();
         expect(json).toEqual(updatedRes1);
     })
     test('Delete a pet', async ()=> {
