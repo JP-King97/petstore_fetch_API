@@ -1,13 +1,32 @@
 {
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.21.0",
     "@types/node": "^22.13.4",
     "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-html-reporter": "^4.0.1",
-    "jest-junit": "^16.0.0"
+    "jest-junit": "^16.0.0",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.3"
   },
   "scripts": {
-    "tests": "jest"
+    "tests": "jest",
+    "prepare":"husky",
+    "lint": "eslint --fix --ext .ts,.tsx"
+  },
+  "lint-staged":{
+    "*.{ts,tsx,js,jsx}":[
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@faker-js/faker": "^9.5.0",
